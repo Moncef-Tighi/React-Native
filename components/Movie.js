@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Image , Text} from 'react-native';
 import { StyleSheet } from 'react-native';
 const Movie = (props) => {
-    console.log(props);
   return (
       <View key={props.id} style={styles.movie}>
         <View >

@@ -1,6 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import ItemList from './components/ItemList';
 import React, { useState } from 'react';
 import AddMovie from './components/addMovie';
 import MovieList from './components/Movie.list';
@@ -19,9 +17,6 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.section}>
           <AddMovie search={search}/>
-      </View>
-      <View style={styles.section}>
-        <Button style={styles.button}>Afficher les films</Button>
       </View>
       <View style={styles.section}>
           <MovieList movies={liste}/>

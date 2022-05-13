@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { StyleSheet } from 'react-native';
 import Movie from './Movie.js';
-import { View, Text, Image } from 'react-native';
+import { View } from 'react-native';
 
 const movie = ({item}) =>{
     return (
