@@ -8,10 +8,10 @@ const Movie = (props) => {
         <View >
             <Image source={require(`../assets/${props.image}`)} style={styles.image}/>
         </View>
-        <View >
-          <Text>{props.title}</Text>
-          <Text>{props.description}</Text>
-          <Text>{props.releaseDate}</Text>
+        <View>
+          <Text style={styles.text}>{props.title}</Text>
+          <Text style={styles.text}>{props.description}</Text>
+          <Text style={styles.text}>{props.releaseDate}</Text>
         </View>
       </View>
   );
@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "white",
         flex: 1,
+        flexDirection : "row",
+        flexShrink : 1,
+        flexBasis: "min-content",
         borderColor:"black",
         borderWidth: 2,
         borderStyle: "solid",
@@ -35,7 +38,12 @@ const styles = StyleSheet.create({
     image: {
         width:200,
         height: 200,
-    }  
+    },
+    text: {
+      fontSize : 16,
+      padding : 10,
+      color : "white",
+    }
 })
 
   

@@ -1,29 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import ItemList from './components/ItemList';
-import React from 'react';
+import React, { useState } from 'react';
 import AddMovie from './components/addMovie';
 import MovieList from './components/Movie.list';
 import listeMovie from './data/data';
 
 export default function App() {
+  const [liste, setListe] = useState(listeMovie);
+
+  const search = function(event, titre) {
+    console.log(titre);
+    const newListe = listeMovie.filter(movie => movie.title.includes(titre))
+    setListe(newListe)
+  }
+
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.section}>
-          <AddMovie/>
+          <AddMovie search={search}/>
       </View>
       <View style={styles.section}>
         <Button style={styles.button}>Afficher les films</Button>
       </View>
       <View style={styles.section}>
-          <MovieList movies={listeMovie}/>
+          <MovieList movies={liste}/>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    display: "block",
     padding: 15,
     backgroundColor: "dimgray",
     // justifyContent: "center",
@@ -32,6 +41,9 @@ const styles = StyleSheet.create({
   section: {
     flex: 1,
     margin: 5,
+    padding: 5,
+    width : 600,
+    alignSelf : "center",
     textAlign: "center",
     backgroundColor: "white",
     padding: 2,

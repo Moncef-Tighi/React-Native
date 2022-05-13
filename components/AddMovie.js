@@ -1,14 +1,15 @@
 
 import { StyleSheet } from "react-native"
 import {View, Text, TextInput, Button} from "react-native"
+import { useRef } from "react";
 
 function AddMovie(props) {
-
+    const titre = useRef();
     return (
         <View>
             <View style={styles.control}>
                 <Text style={styles.label}>Title</Text>
-                <TextInput style={styles.input}/>
+                <TextInput style={styles.input} ref={titre}/>
             </View>
             <View style={styles.control}>
                 <Text style={styles.label} >Opening Text</Text>
@@ -18,7 +19,7 @@ function AddMovie(props) {
                 <Text style={styles.label}>Release Date</Text>
                 <TextInput style={styles.input}/>
             </View>
-            <Button>Add Movie</Button>
+            <Button onPress={(event)=> props.search(event, titre.current.value)}>Add Movie</Button>
         </View>
     )
 }
